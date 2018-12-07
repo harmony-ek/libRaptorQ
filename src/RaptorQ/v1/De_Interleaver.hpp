@@ -139,7 +139,7 @@ std::vector<bool> De_Interleaver<Fwd_It>::symbols_to_bytes (
                                     const std::vector<bool> &real_syms) const
 {
     std::vector<bool> ret;
-    if (real_syms.size() != _symbols->rows())
+    if (uintmax_t(real_syms.size()) != uintmax_t(_symbols->rows()))
         return ret;
 
     enum class  syms_state : uint8_t {

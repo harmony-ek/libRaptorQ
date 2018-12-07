@@ -74,7 +74,7 @@ public:
                                             "RQ RFC Decoder: too much padding");
 
         uint16_t to_pad = (static_cast<uint16_t> (symbols) - padding_symbols);
-        source_symbols.block(to_pad, 0, padding_symbols, symbol_size).setZero();
+        source_symbols.block(to_pad, 0, padding_symbols, long(symbol_size)).setZero();
         for (; to_pad < static_cast<uint16_t> (symbols); ++to_pad)
             mask.add (to_pad);
     }
